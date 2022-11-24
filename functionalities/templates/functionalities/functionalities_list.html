@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='container'>
+
+    <ul>
+    {% for function in func_list %}
+        <li><a href="detail/{{function.id}}">{{function.name}}</a></li>
+    {% endfor %}
+    </ul>
+
+</div>
+{% endblock content %}
+
+
