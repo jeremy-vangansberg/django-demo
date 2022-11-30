@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from .functions import multiplicate_by_5
+from django.views.generic.edit import CreateView
+from . import models
+# from django.contrib.auth.forms import UserCreationForm
+from . import forms
+from django.urls import reverse_lazy
 
 weekdays = [
         'lundi',
@@ -24,3 +29,8 @@ def home_view(request):
 
 def about_view(request):
     return render(request, 'divers/about_page.html')
+
+class UserCreateView(CreateView):
+    form_class = forms.UserCreationFormCustom
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
